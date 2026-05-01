@@ -4,12 +4,7 @@ DB_NAME = "example.db"
 
 def initialize_database():
     connection = sqlite3.connect(DB_NAME)
-    print("Connected to the database.")
-
     cursor = connection.cursor()
-    print("Cursor created.")
-
-    print("Creating table if it does not exist...")
 
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS accounts (
@@ -19,11 +14,9 @@ def initialize_database():
     )
     """)
 
-    print("Table created.")
-
-    print("Committing changes and closing the connection...")
     connection.commit()
     connection.close()
 
 
-initialize_database()
+if __name__ == "__main__":
+    initialize_database()
