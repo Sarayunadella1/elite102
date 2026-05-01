@@ -1,31 +1,22 @@
-import sqlite3
+from initialize_db import initialize_database
 
+def menu():
+    while True:
+        print("\n=== Banking System ===")
+        print("1. Create Account")
+        print("2. Deposit")
+        print("3. Withdraw")
+        print("4. Check Balance")
+        print("5. Exit")
 
-def main():
-    connection = sqlite3.connect('example.db')
-    cursor = connection.cursor()
+        choice = input("Choose an option: ")
 
-    # Get all rows from the students table
-    print("Fetching all rows from the students table...")
-    results = cursor.execute('''
-        SELECT * FROM students
-    ''')
-
-    print("Results:")
-    for row in results:
-        print(row)
-
-    # Get all students with a GPA greater than 3.5
-    print("Fetching students with GPA greater than 3.5...")
-    results = cursor.execute('''
-        SELECT * FROM students WHERE gpa > 3.5
-    ''')
-    print("Results:")
-    for row in results:
-        print(row)
-
-    connection.close()
-
+        if choice == "5":
+            print("Goodbye.")
+            break
+        else:
+            print("Feature not built yet.")
 
 if __name__ == "__main__":
-    main()
+    initialize_database()
+    menu()
